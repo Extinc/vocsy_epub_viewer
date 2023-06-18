@@ -21,7 +21,7 @@ import androidx.annotation.NonNull;
 
 import com.folioreader.model.locators.ReadLocator;
 
-import android.view.WindowManager.LayoutParams
+import android.view.WindowManager.LayoutParams;
 /**
  * EpubReaderPlugin
  */
