@@ -107,15 +107,15 @@ public class EpubViewerPlugin implements MethodCallHandler, FlutterPlugin, Activ
 
     @Override
     public void onDetachedFromActivityForConfigChanges() {
-        activity = activityPluginBinding.getActivity();
-        if(activity != null){
-            activity.getWindow().addFlags(LayoutParams.FLAG_SECURE);
-        }
+
     }
 
     @Override
     public void onReattachedToActivityForConfigChanges(@NonNull ActivityPluginBinding activityPluginBinding) {
-
+        activity = activityPluginBinding.getActivity();
+        if(activity != null){
+            activity.getWindow().addFlags(LayoutParams.FLAG_SECURE);
+        }
     }
 
     @Override
@@ -136,10 +136,6 @@ public class EpubViewerPlugin implements MethodCallHandler, FlutterPlugin, Activ
             Boolean enableTts = Boolean.parseBoolean(arguments.get("enableTts").toString());
             config = new ReaderConfig(context, identifier, themeColor,
                     scrollDirection, allowSharing, enableTts, nightMode);
-
-            if(activity != null){
-                activity.getWindow().addFlags(LayoutParams.FLAG_SECURE);
-            }
 
         } else if (call.method.equals("open")) {
 
